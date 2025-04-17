@@ -21,7 +21,6 @@ This map displays the locations of reported Bigfoot sightings across the U.S., w
 
 
 
-
 ## 📊 Sightings by State and Season
 
 This grouped bar chart shows the number of Bigfoot sightings in each state across all four seasons. It gives a clear breakdown of seasonal trends in each region, highlighting whether reports spike during certain times of the year.
