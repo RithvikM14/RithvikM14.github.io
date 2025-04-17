@@ -20,7 +20,7 @@ chart1 = alt.Chart(df_plot1).mark_bar().encode(
     y=alt.Y('count:Q', title='Number of Sightings'),
     color=alt.Color('season:N', title='Season'),
     tooltip=['state:N', 'season:N', 'count:Q']
-)
+).interactive()
 
 chart1.properties(width='container').save("/Users/rithvikmandumula/RithvikM14.github.io/assets/json/bigfoot-chart1.json")
 
