@@ -1,6 +1,6 @@
 ---
-layout: post
-title: "Bigfoot Sightings Visualizations"
+name: "Bigfoot Sightings Visualizations"
+tools: [Python, HTML, altair]
 custom_js:
   - vega.min
   - vega-lite.min
@@ -8,11 +8,8 @@ custom_js:
   - justcharts
 ---
 
-# Bigfoot Sightings Visualizations
-
 [The Data](https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/bfro_reports_fall2022.csv)  
 [The Analysis](https://github.com/RithvikM14/RithvikM14.github.io/python_notebooks/Rithvik-HW-5.2.ipynb)
-
 ---
 
 ## 🗺️ Map of Bigfoot Sightings with Weather Conditions
