@@ -13,6 +13,7 @@ baseurl             : ""   # Change to empty quotes if you are hosting your site
 repository          :                     # Change to <your-username> for github OR, if that doesn't work <your-username>/<your-username>.github.io (or remove it if you don't need remote projects) -- for example, I would put "jnaiman" without the quotes after the ":" here
 open_new_tab        : false                             # Opens external URLs in new tab (works for posts, projects and navbar only)
 
+markdown: kramdown
 
 ### Plugins ###
 plugins:
