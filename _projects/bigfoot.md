@@ -16,9 +16,15 @@ custom_js:
 
 This map displays the locations of reported Bigfoot sightings across the U.S., with color representing the moon phase at the time of each sighting. Users can filter sightings using a dropdown menu for each state. This interactivity helps highlight spatial clusters and potential atmospheric patterns in the sightings.
 
+We can use a vegachart HTML tag like so:
+
+```
+<vegachart schema-url="{{ site.baseurl }}/assets/json/cars.json" style="width: 100%"></vegachart>
+```
+
 <vegachart schema-url="https://github.com/RithvikM14/RithvikM14.github.io/blob/main/assets/json/bigfoot-chart2.json" style="width: 100%"></vegachart>
 
----
+
 
 ## 📊 Sightings by State and Season
 
@@ -26,4 +32,4 @@ This grouped bar chart shows the number of Bigfoot sightings in each state acros
 
 <vegachart schema-url="https://github.com/RithvikM14/RithvikM14.github.io/blob/main/assets/json/bigfoot-chart1.json" style="width: 100%"></vegachart>
 
----
+
