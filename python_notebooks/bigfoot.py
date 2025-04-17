@@ -20,7 +20,11 @@ chart1 = alt.Chart(df_plot1).mark_bar().encode(
     y=alt.Y('count:Q', title='Number of Sightings'),
     color=alt.Color('season:N', title='Season'),
     tooltip=['state:N', 'season:N', 'count:Q']
-).interactive()
+).properties(
+    width=700,
+    height=400,
+    title='Bigfoot Sightings by State and Season'
+)
 
 chart1.properties(width='container').save("/Users/rithvikmandumula/RithvikM14.github.io/assets/json/bigfoot-chart1.json")
 
@@ -70,4 +74,6 @@ points = alt.Chart(df_map).mark_circle(size=60).encode(
 
 # Combine base map + points
 final_chart = background + points
+final_chart.properties(title='Map of Bigfoot Sightings with Weather Conditions')
+
 final_chart.properties(width='container').save("/Users/rithvikmandumula/RithvikM14.github.io/assets/json/bigfoot-chart2.json")
