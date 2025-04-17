@@ -22,7 +22,9 @@ We can use a vegachart HTML tag like so:
 <vegachart schema-url="{{ site.baseurl }}/assets/json/cars.json" style="width: 100%"></vegachart>
 ```
 
-<vegachart schema-url="https://github.com/RithvikM14/RithvikM14.github.io/blob/main/assets/json/bigfoot-chart2.json" style="width: 100%"></vegachart>
+
+<vegachart schema-url="{{ site.baseurl }}/assets/bigfoot-chart2.json" style="width: 100%"></vegachart>
+
 
 
 
@@ -30,6 +32,6 @@ We can use a vegachart HTML tag like so:
 
 This grouped bar chart shows the number of Bigfoot sightings in each state across all four seasons. It gives a clear breakdown of seasonal trends in each region, highlighting whether reports spike during certain times of the year.
 
-<vegachart schema-url="https://github.com/RithvikM14/RithvikM14.github.io/blob/main/assets/json/bigfoot-chart1.json" style="width: 100%"></vegachart>
+<vegachart schema-url="{{ site.baseurl }}/assets/bigfoot-chart1.json" style="width: 100%"></vegachart>
 
 
