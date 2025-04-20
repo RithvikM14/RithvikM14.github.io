@@ -28,37 +28,28 @@ chart1 = alt.Chart(df_plot1).mark_bar().encode(
 
 chart1.properties(width='container').save("/Users/rithvikmandumula/RithvikM14.github.io/assets/json/bigfoot-chart1.json")
 
-from vega_datasets import data
+# -------------------------------
+# PLOT 2
+# -------------------------------
 
-# Drop rows with missing coordinates
-df_map = df.dropna(subset=['latitude', 'longitude'])
+# Create a new column with binned moon phases (e.g. 0.0 to 1.0 in steps of 0.2)
+df_moon = df.dropna(subset=['moon_phase', 'season'])  # clean missing data
 
-# US States background map
-us_states = alt.topo_feature(data.us_10m.url, 'states')
-
-# Background map
-background = alt.Chart(us_states).mark_geoshape(
-    fill='lightgray',
-    stroke='white'
-).project('albersUsa').properties(
-    width=700,
-    height=400
-).interactive()  # Enables zoom/pan
-
-# Bigfoot sightings as points with hover tooltips
-points = alt.Chart(df_map).mark_circle(size=60).encode(
-    longitude='longitude:Q',
-    latitude='latitude:Q',
-    color=alt.Color('moon_phase:Q', scale=alt.Scale(scheme='purplebluegreen'), title='Moon Phase'),
+chart_moon = alt.Chart(df_moon).mark_bar().encode(
+    x=alt.X('moon_phase:Q', bin=alt.Bin(maxbins=10), title='Moon Phase (binned)'),
+    y=alt.Y('count():Q', title='Number of Sightings'),
+    color=alt.Color('season:N', title='Season'),
     tooltip=[
-        'location:N', 'state:N', 'season:N', 
-        'temperature_mid:Q', 'cloud_cover:Q', 
-        'humidity:Q', 'summary:N'
+        alt.Tooltip('count():Q', title='Sightings'),
+        alt.Tooltip('season:N'),
+        alt.Tooltip('moon_phase:Q', bin=True)
     ]
+).properties(
+    width=700,
+    height=400,
+    title='Bigfoot Sightings by Moon Phase and Season'
 )
 
-# Final layered chart with zoom & hover
-final_chart = background + points
-final_chart = final_chart.properties(title='Map of Bigfoot Sightings with Weather Conditions')
 
-final_chart.properties(width='container').save("/Users/rithvikmandumula/RithvikM14.github.io/assets/json/bigfoot-chart2.json")
+# Final layered chart with zoom & hover
+chart_moon.properties(width='container').save("/Users/rithvikmandumula/RithvikM14.github.io/assets/json/bigfoot-chart2.json")
