@@ -28,35 +28,24 @@ chart1 = alt.Chart(df_plot1).mark_bar().encode(
 
 chart1.properties(width='container').save("/Users/rithvikmandumula/RithvikM14.github.io/assets/json/bigfoot-chart1.json")
 
-# -------------------------------
-# PLOT 2: Interactive Map with Weather Info
-# -------------------------------
-
 from vega_datasets import data
 
 # Drop rows with missing coordinates
 df_map = df.dropna(subset=['latitude', 'longitude'])
 
-# --- Create dropdown with "All" option ---
-states = sorted(df_map['state'].dropna().unique().tolist())
-states.insert(0, 'All')  # Add 'All' to top
-
-# Create dropdown binding and selection
-state_dropdown = alt.binding_select(options=states, name='Select State: ')
-state_select = alt.param(name='SelectedState', bind=state_dropdown, value='All')
-
 # US States background map
 us_states = alt.topo_feature(data.us_10m.url, 'states')
 
+# Background map
 background = alt.Chart(us_states).mark_geoshape(
     fill='lightgray',
     stroke='white'
 ).project('albersUsa').properties(
     width=700,
     height=400
-).interactive()
+).interactive()  # Enables zoom/pan
 
-# Bigfoot sightings points
+# Bigfoot sightings as points with hover tooltips
 points = alt.Chart(df_map).mark_circle(size=60).encode(
     longitude='longitude:Q',
     latitude='latitude:Q',
@@ -66,14 +55,10 @@ points = alt.Chart(df_map).mark_circle(size=60).encode(
         'temperature_mid:Q', 'cloud_cover:Q', 
         'humidity:Q', 'summary:N'
     ]
-).add_params(
-    state_select
-).transform_filter(
-    "SelectedState === 'All' || datum.state === SelectedState"
 )
 
-# Combine base map + points
+# Final layered chart with zoom & hover
 final_chart = background + points
-final_chart.properties(title='Map of Bigfoot Sightings with Weather Conditions').interactive()
+final_chart = final_chart.properties(title='Map of Bigfoot Sightings with Weather Conditions')
 
 final_chart.properties(width='container').save("/Users/rithvikmandumula/RithvikM14.github.io/assets/json/bigfoot-chart2.json")
