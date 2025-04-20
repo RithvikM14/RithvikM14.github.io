@@ -9,7 +9,7 @@ custom_js:
 ---
 
 [The Data](https://raw.githubusercontent.com/UIUC-iSchool-DataViz/is445_data/main/bfro_reports_fall2022.csv)  
-[The Analysis](https://github.com/RithvikM14/RithvikM14.github.io/blob/main/python_notebooks/Rithvik-HW-5.2.ipynb)
+[The Analysis](https://github.com/RithvikM14/RithvikM14.github.io/blob/main/python_notebooks/bigfoot.py)
 ---
 
 ### 🌕 Sightings by Moon Phase and Season
